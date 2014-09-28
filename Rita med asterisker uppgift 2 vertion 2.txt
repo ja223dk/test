@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication43
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+
+            int colorSwitch = 1;
+            int mellanslag = 1;
+
+
+            for (int resetLoop = 1; resetLoop <= 25; resetLoop++)
+            {
+             
+
+                switch (colorSwitch)
+                {
+                    case 1:
+                        
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            colorSwitch = 2;
+                        break;
+
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        colorSwitch = 3;
+                        break;
+                       
+
+                    case 3:
+                   
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        colorSwitch = 1;
+                        break;
+                }
+
+
+
+                        for (int i = 1; i <= 39; i++)
+                        {
+                            Console.Write("* ");
+                            if (i == 39)
+                            { Console.WriteLine(); }
+                        }
+
+
+
+                       
+
+                        mellanslag++;
+
+                    if ( mellanslag == 2)
+                    { Console.Write(" "); }
+
+                    if (mellanslag == 3)
+                    { mellanslag = 1; }
+
+
+
+                        
+
+
+                }
+            
+            }
+
+        }
+    }
+
+

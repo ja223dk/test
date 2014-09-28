@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double pengar;
+            double kostnad;
+            double summan;
+            string input;
+            string inputTwo;
+            string kvitto;
+            int pengarTillbaka;
+            double avrundning;
+            int lösaPengar;
+
+
+
+
+            //"parse" används för att tolka om doubble till string
+            Console.Write("skriv in kostnaden av varor: "); kostnad = double.Parse(Console.ReadLine());
+
+            if (kostnad < 1)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Write("Du måste ange ett tal större än 0. ");
+                Console.WriteLine();
+                Console.ResetColor();
+                return;
+            }
+
+            //"parse" används för att tolka om double till string
+
+            //"parse" används för att tolka om double till string
+            Console.Write("ange hur mycket du vill betala: "); pengar = double.Parse(Console.ReadLine());
+
+
+
+            if (pengar < 1)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Write("Du måste ange ett tal större än 0. ");
+                Console.WriteLine();
+                Console.ResetColor();
+                return;
+            }
+
+            while (pengar < kostnad)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Write("du har betalat för lite pengar, försök igen. ");
+                Console.WriteLine();
+                Console.ResetColor();
+                return;
+            }
+
+
+            //uträkning av avrundning & pengar tillbaka
+
+            summan = Math.Round(kostnad);
+            avrundning = summan - kostnad;
+            pengarTillbaka = (int)pengar - (int)kostnad;
+            //Kvittot 
+            kvitto = "\nKVITTO";
+            Console.WriteLine(kvitto);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Total kostnad av varan {0:c}", kostnad);
+            Console.WriteLine("avrundningen {0:f2}kr", avrundning);
+            Console.WriteLine("du betalade {0:c}", pengar);
+            Console.WriteLine("Att betala {0:c}", summan);
+            Console.WriteLine("du kommer få tillbaka {0:c}. ", pengarTillbaka);
+            Console.WriteLine("------------------------------------");
+
+            // växel tillbaka pengar
+
+
+            lösaPengar = pengarTillbaka / 500;
+
+            if (lösaPengar > 0)
+            {
+
+                Console.WriteLine("500-lappar: {0}", lösaPengar);
+                pengarTillbaka = pengarTillbaka % 500;
+            }
+
+
+            lösaPengar = pengarTillbaka / 100;
+
+            if (lösaPengar > 0)
+            {
+                Console.WriteLine("100-lappar: {0}", lösaPengar);
+                pengarTillbaka = pengarTillbaka % 100;
+            }
+
+            lösaPengar = pengarTillbaka / 20;
+
+            if (lösaPengar > 0)
+            {
+
+                Console.WriteLine("20-lappar: {0}", lösaPengar);
+                pengarTillbaka = pengarTillbaka % 20;
+            }
+            lösaPengar = pengarTillbaka / 10;
+
+            if (lösaPengar > 0)
+            {
+
+                Console.WriteLine("10-kronor: {0}", lösaPengar);
+                pengarTillbaka = pengarTillbaka % 10;
+            }
+            lösaPengar = pengarTillbaka / 1;
+
+            if (lösaPengar > 0)
+            {
+
+                Console.WriteLine("1-kronor: {0}", lösaPengar);
+                pengarTillbaka = pengarTillbaka % 1;
+            }
+
+
+
+
+        }
+    }
+}

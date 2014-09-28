@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication44
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int antalLöner;
+            int löneSumman;
+
+
+            Console.Write("Ange hur många löner du kommer mata in: ");
+           
+
+            antalLöner = GetUserInput();
+           
+
+           
+
+            int[] olikaLöner = new int[antalLöner];
+           
+            Console.WriteLine();
+            for (int i = 0; i < olikaLöner.Length; i++)
+
+            {
+                Console.Write("ange lön nummer {0}: ",i + 1);
+                löneSumman = GetUserInput();
+                olikaLöner[i] = löneSumman;
+               
+            }
+            
+
+            Array.Sort(olikaLöner);
+
+            int högstaLönen = olikaLöner.Max();
+            int minstaLönen = olikaLöner.Min();
+            int löneSpridning = högstaLönen - minstaLönen;
+            double medellön = olikaLöner.Average();
+              
+
+
+
+
+            Console.WriteLine();
+            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("Medianlön:");
+            Console.WriteLine("Medellön:            {0:c0}", medellön);         
+            Console.WriteLine("lönespridning:       {0:c0}", löneSpridning);
+            Console.WriteLine("-------------------------------------------------");
+
+        }
+
+        static int GetUserInput()
+        {
+            
+            int output;
+            output = int.Parse(Console.ReadLine());
+            
+            return output;
+        }
+    }
+}
+
+

@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication34
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int mellanslagGul;
+            int mellanslagRöd;
+            int mellanslagGrön;
+            int punkt;
+            mellanslagGul = 1;
+            mellanslagRöd = 1;
+            mellanslagGrön = 1;
+            punkt = 0;
+
+            for (int resetLoop = 1; resetLoop <= 8; resetLoop++)
+            {
+
+                if (punkt == 0)
+                {
+                    if (mellanslagGul == 1)
+                    { Console.Write(" "); }
+
+                    for (int i = 1; i <= 39; i++)
+                    {
+                        
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("* ");
+                        Console.ResetColor();
+                        if (i == 39)
+                        { Console.WriteLine(); }
+                        if (i == 39)
+                        {
+                            punkt++;
+                        }
+                    }
+
+                }
+
+                mellanslagGul++;
+                if (mellanslagGul == 3)
+                { mellanslagGul = 1; }
+
+                if (punkt == 1)
+                {
+                    if (mellanslagRöd == 2)
+                    { Console.Write(" "); }
+
+                    for (int i = 1; i <= 39; i++)
+                    {
+                        
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write("* ");
+                        Console.ResetColor();
+                        if (i == 39)
+                        { Console.WriteLine(); }
+                        if (i == 39)
+                        {
+                            punkt++;
+                        }
+                    }
+
+                }
+
+                mellanslagRöd++;
+                if (mellanslagRöd == 3)
+                { mellanslagRöd = 1; }
+
+                if (punkt == 2)
+                {
+                    if (mellanslagGrön == 1)
+                    { Console.Write(" "); }
+
+                    for (int i = 1; i <= 39; i++)
+                    {
+                        
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("* ");
+                        Console.ResetColor();
+                        if (i == 39)
+                        { Console.WriteLine(); }
+                        if (i == 39)
+                        {
+                            punkt++;
+                        }
+
+                        mellanslagGrön++;
+                        if (mellanslagGrön == 3)
+                        { mellanslagGrön = 1; }
+                        punkt = 0;
+                    }
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+}
